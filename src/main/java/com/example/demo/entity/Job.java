@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
@@ -13,7 +14,9 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
-
+    @ManyToOne
+    @JsonBackReference
+    private Company company;
     // Default constructor
     public Job() {
     }
@@ -27,8 +30,21 @@ public class Job {
         this.location = location;
     }
 
+    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+        this.location = location;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -69,5 +85,13 @@ public class Job {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }
