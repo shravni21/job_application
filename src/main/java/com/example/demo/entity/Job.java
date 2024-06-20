@@ -1,6 +1,12 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+
+@Entity
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
@@ -8,13 +14,21 @@ public class Job {
     private String maxSalary;
     private String location;
 
-    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
-        this.id = id;
+    // Default constructor
+    public Job() {
+    }
+
+    // Parameterized constructor
+    public Job(String title, String description, String minSalary, String maxSalary, String location) {
         this.title = title;
         this.description = description;
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
         this.location = location;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
