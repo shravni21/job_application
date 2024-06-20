@@ -1,13 +1,14 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Job;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface JobService {
-    Job createJob(Job job);
-    List<Job> getAllJobs();
-    Job getJob(Long id);
-    Job updateJob(Long id, Job job);
-    void deleteJob(Long id);
+    ResponseEntity<Job> createJob(Job job);
+    ResponseEntity<List<Job>> getAllJobs();
+    ResponseEntity<Job> getJob(Long id);
+    ResponseEntity<Job> updateJob(Long id, Job job);
+    ResponseEntity<String> deleteJob(Long id);
 }

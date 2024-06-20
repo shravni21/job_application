@@ -3,7 +3,8 @@ package com.example.demo.service.impl;
 import com.example.demo.entity.Job;
 import com.example.demo.repository.JobRepository;
 import com.example.demo.service.JobService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,40 +19,50 @@ public class JobServiceimpl implements JobService {
     }
 
     @Override
-    public Job createJob(Job job) {
-        return jobRepository.save(job);
+    public ResponseEntity<Job> createJob(Job job) {
+        Job savedJob= jobRepository.save(job);
+        return new ResponseEntity<>(savedJob, HttpStatus.OK);
     }
 
     @Override
-    public List<Job> getAllJobs() {
-        return jobRepository.findAll();
-    }
-
-
-    @Override
-    public Job getJob(Long id) {
-        Optional<Job> find_job = jobRepository.findById(id);
-        return find_job.orElse(null);
+    public ResponseEntity<List<Job>> getAllJobs() {
+        List<Job> jobs = jobRepository.findAll();
+        return new ResponseEntity<>(jobs, HttpStatus.OK);
     }
 
     @Override
-    public Job updateJob(Long id, Job job) {
-        Optional<Job> existing_job = jobRepository.findById(id);
-        if (existing_job.isPresent()) {
-            Job existingJob = existing_job.get();
-            existingJob.setDescription(job.getDescription());
-            existingJob.setLocation(job.getLocation());
+    public ResponseEntity<Job> getJob(Long id) {
+        Optional<Job> findJob = jobRepository.findById(id);
+        return findJob.map(job -> new ResponseEntity<>(job, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @Override
+    public ResponseEntity<Job> updateJob(Long id, Job job) {
+        Optional<Job> existingJobOpt = jobRepository.findById(id);
+        if (existingJobOpt.isPresent()) {
+            Job existingJob = existingJobOpt.get();
             existingJob.setTitle(job.getTitle());
-            existingJob.setMaxSalary(job.getMaxSalary());
+            existingJob.setDescription(job.getDescription());
             existingJob.setMinSalary(job.getMinSalary());
+            existingJob.setMaxSalary(job.getMaxSalary());
+            existingJob.setLocation(job.getLocation());
 
-            return jobRepository.save(existingJob);
+            Job updatedJob = jobRepository.save(existingJob);
+            return new ResponseEntity<>(updatedJob, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return null;
     }
 
     @Override
-    public void deleteJob(Long id) {
-        jobRepository.deleteById(id);
+    public ResponseEntity<String> deleteJob(Long id) {
+        if (jobRepository.existsById(id)) {
+            jobRepository.deleteById(id);
+            return new ResponseEntity<>("Job deleted successfully!", HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>("Job not found!", HttpStatus.NOT_FOUND);
+        }
     }
+
 }
