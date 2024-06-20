@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -14,8 +15,8 @@ public class Company {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
     //    private List<Review> reviews

@@ -15,7 +15,6 @@ public class Job {
     private String maxSalary;
     private String location;
     @ManyToOne
-    @JsonBackReference
     private Company company;
     // Default constructor
     public Job() {
