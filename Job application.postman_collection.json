@@ -1,0 +1,1121 @@
+{
+	"info": {
+		"_postman_id": "9ca834c6-1063-4c62-bfda-91c629df4379",
+		"name": "Job application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23402056",
+		"_collection_link": "https://www.postman.com/gold-star-892518/workspace/temporary/collection/23402056-9ca834c6-1063-4c62-bfda-91c629df4379?action=share&source=collection_link&creator=23402056"
+	},
+	"item": [
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "get all jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all jobs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/jobs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jobs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 09:52:35 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"SDE2\",\n        \"description\": \"Developing and maintaining software applications.\",\n        \"minSalary\": \"50000\",\n        \"maxSalary\": \"80000\",\n        \"location\": \"Pune1\",\n        \"company\": {\n            \"id\": 1,\n            \"name\": \"Tech Innovators Inc.\",\n            \"description\": \"A leading tech company specializing in innovative solutions.\",\n            \"reviews\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"Great Product\",\n                    \"description\": \"The product was fantastic and exceeded expectations.\",\n                    \"rating\": 4.5\n                }\n            ]\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jobs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobs",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get job",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/jobs/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jobs",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:42:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"SDE2\",\n    \"description\": \"Developing and maintaining software applications.\",\n    \"minSalary\": \"50000\",\n    \"maxSalary\": \"80000\",\n    \"location\": \"Pune1\",\n    \"company\": {\n        \"id\": 1,\n        \"name\": \"Tech Innovators Inc1.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": [\n            {\n                \"id\": 1,\n                \"title\": \"Good Company\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create a job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"SDE2\",\r\n  \"description\": \"Developing and maintaining software applications.\",\r\n  \"minSalary\": \"50000\",\r\n  \"maxSalary\": \"80000\",\r\n  \"location\": \"Pune1\",\r\n  \"company\": {\r\n     \"id\": 1\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create a job",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"SDE2\",\r\n  \"description\": \"Developing and maintaining software applications.\",\r\n  \"minSalary\": \"50000\",\r\n  \"maxSalary\": \"80000\",\r\n  \"location\": \"Pune1\",\r\n  \"company\": {\r\n     \"id\": 3\r\n  }\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/jobs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jobs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:28:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"title\": \"SDE2\",\n    \"description\": \"Developing and maintaining software applications.\",\n    \"minSalary\": \"50000\",\n    \"maxSalary\": \"80000\",\n    \"location\": \"Pune1\",\n    \"company\": {\n        \"id\": 3,\n        \"name\": null,\n        \"description\": null,\n        \"reviews\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "edit job",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 7,\r\n  \"title\": \"SDE1\",\r\n  \"description\": \"Developing and maintaining software applications.\",\r\n  \"minSalary\": \"50000\",\r\n  \"maxSalary\": \"80000\",\r\n  \"location\": \"Pune1\",\r\n  \"company\": {\r\n     \"id\": 2,\r\n        \"name\": \"Tech Innovators Inc.\",\r\n        \"description\": \"A leading tech company specializing in innovative solutions.\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobs/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobs",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "edit job",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"SDE1\",\r\n  \"description\": \"Developing and maintaining software applications.\",\r\n  \"minSalary\": \"50000\",\r\n  \"maxSalary\": \"80000\",\r\n  \"location\": \"Pune1\",\r\n  \"company\": {\r\n     \"id\": 2,\r\n        \"name\": \"Tech Innovators Inc.\",\r\n        \"description\": \"A leading tech company specializing in innovative solutions.\"\r\n  }\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/jobs/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jobs",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:42:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"SDE1\",\n    \"description\": \"Developing and maintaining software applications.\",\n    \"minSalary\": \"50000\",\n    \"maxSalary\": \"80000\",\n    \"location\": \"Pune1\",\n    \"company\": {\n        \"id\": 1,\n        \"name\": \"Tech Innovators Inc1.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": [\n            {\n                \"id\": 1,\n                \"title\": \"Good Company\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete job",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"title\": \"Software Engineer\",\r\n  \"description\": \"Developing and maintaining software applications.\",\r\n  \"minSalary\": \"50000\",\r\n  \"maxSalary\": \"80000\",\r\n  \"location\": \"San Francisco, CA\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobs/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobs",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "get Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get Companies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:43:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Tech Innovators Inc1.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": [\n            {\n                \"id\": 1,\n                \"title\": \"Good Company\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Tech Innovators Inc.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": [\n            {\n                \"id\": 4,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            },\n            {\n                \"id\": 5,\n                \"title\": \"Great Product\",\n                \"description\": \"The product was fantastic and exceeded expectations.\",\n                \"rating\": 4.5\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Tech Innovators Inc.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": []\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Tech Innovators Inc.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": []\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Tech Innovators Inc.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": []\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Tech Innovators Inc.\",\n        \"description\": \"A leading tech company specializing in innovative solutions.\",\n        \"reviews\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get company by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get company by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/company/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"company",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:43:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Tech Innovators Inc1.\",\n    \"description\": \"A leading tech company specializing in innovative solutions.\",\n    \"reviews\": [\n        {\n            \"id\": 1,\n            \"title\": \"Good Company\",\n            \"description\": \"The product was fantastic and exceeded expectations.\",\n            \"rating\": 4.5\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Great Product\",\n            \"description\": \"The product was fantastic and exceeded expectations.\",\n            \"rating\": 4.5\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Great Product\",\n            \"description\": \"The product was fantastic and exceeded expectations.\",\n            \"rating\": 4.5\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/company/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n  \"name\": \"Tech Innovators Inc1.\",\r\n  \"description\": \"A leading tech company specializing in innovative solutions.\",\r\n  \"jobs\": [\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "edit company",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n  \"name\": \"Tech Innovators Inc1.\",\r\n  \"description\": \"A leading tech company specializing in innovative solutions.\",\r\n  \"jobs\": [\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/company/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"company",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:43:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Tech Innovators Inc1.\",\n    \"description\": \"A leading tech company specializing in innovative solutions.\",\n    \"reviews\": [\n        {\n            \"id\": 1,\n            \"title\": \"Good Company\",\n            \"description\": \"The product was fantastic and exceeded expectations.\",\n            \"rating\": 4.5\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Great Product\",\n            \"description\": \"The product was fantastic and exceeded expectations.\",\n            \"rating\": 4.5\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Great Product\",\n            \"description\": \"The product was fantastic and exceeded expectations.\",\n            \"rating\": 4.5\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "create a company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Tech Innovators Inc.\",\r\n  \"description\": \"A leading tech company specializing in innovative solutions.\",\r\n  \"jobs\": [\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create a company",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Tech Innovators Inc.\",\r\n  \"description\": \"A leading tech company specializing in innovative solutions.\",\r\n  \"jobs\": [\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:28:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Tech Innovators Inc.\",\n    \"description\": \"A leading tech company specializing in innovative solutions.\",\n    \"reviews\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "get reviews of company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/companies/1/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"companies",
+								"1",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get reviews of company",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/companies/1/reviews",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"companies",
+										"1",
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 09:53:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Great 1\",\n        \"description\": \"The product was fantastic and exceeded expectations.\",\n        \"rating\": 4.5\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get review",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "get reviews of company Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/companies/1/reviews/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"companies",
+										"1",
+										"reviews",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:31:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Good Company\",\n    \"description\": \"The product was fantastic and exceeded expectations.\",\n    \"rating\": 4.5\n}"
+						}
+					]
+				},
+				{
+					"name": "create review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"title\": \"Great Product\",\r\n  \"description\": \"The product was fantastic and exceeded expectations.\",\r\n  \"rating\": 4.5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/companies/1/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"companies",
+								"1",
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get reviews of company Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Great Product\",\r\n  \"description\": \"The product was fantastic and exceeded expectations.\",\r\n  \"rating\": 4.5\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/companies/2/reviews",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"companies",
+										"2",
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:28:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Review added successfully"
+						}
+					]
+				},
+				{
+					"name": "edit review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Great 1\",\r\n  \"description\": \"The product was fantastic and exceeded expectations.\",\r\n  \"rating\": 4.5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/companies/1/reviews/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"companies",
+								"1",
+								"reviews",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create review Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Good Company\",\r\n  \"description\": \"The product was fantastic and exceeded expectations.\",\r\n  \"rating\": 4.5\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/companies/1/reviews/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"companies",
+										"1",
+										"reviews",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jun 2024 10:15:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Good Company\",\n    \"description\": \"The product was fantastic and exceeded expectations.\",\n    \"rating\": 4.5\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
